@@ -1,5 +1,5 @@
 import { ReactNode, useCallback, useMemo, useState } from 'react';
-import { LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext, ThemeContextProps } from './ThemeContext';
+import { LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext, ThemeContextProps } from '../libs/ThemeContext';
 
 interface ThemeProviderProps {
     children: ReactNode;
@@ -11,9 +11,8 @@ export const ThemeProvider = (props: ThemeProviderProps) => {
     const { children } = props;
 
     const [theme, setTheme] = useState<Theme>(defaultTheme)
-    console.log(theme)
+
     const toggleTheme = useCallback(() => {
-        console.log(222)
         const newTheme = theme === Theme.DARK ? Theme.LIGHT : Theme.DARK
         setTheme(newTheme)
         localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme)
