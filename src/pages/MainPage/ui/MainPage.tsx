@@ -1,7 +1,7 @@
-const MainPage = () => {
-  return (
-      <div>MAIN PAGE</div>
-  )
+function MainPage() {
+    return (
+        <div>MAIN PAGE</div>
+    );
 }
 
 export default MainPage;

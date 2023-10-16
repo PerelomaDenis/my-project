@@ -6,16 +6,16 @@ interface LangSwitcherProps {
     className?: string;
 }
 
-export const LangSwitcher = (props: LangSwitcherProps) => {
+export function LangSwitcher(props: LangSwitcherProps) {
     const { className } = props;
 
-    const {i18n} = useTranslation();
+    const { i18n } = useTranslation();
 
-    const toggleLanguage = () => i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru')
+    const toggleLanguage = () => i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru');
 
     return (
         <Button onClick={toggleLanguage} className={classNames('', {}, [className])}>
             {i18n.language === 'ru' ? 'Русский' : 'English'}
         </Button>
     );
-};
+}
