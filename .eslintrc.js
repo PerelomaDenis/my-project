@@ -2,6 +2,7 @@ module.exports = {
     env: {
         browser: true,
         es2021: true,
+        jest: true,
     },
     extends: [
         'plugin:react/recommended',
@@ -33,8 +34,16 @@ module.exports = {
         'import/prefer-default-export': 'off',
         'no-shadow': 'off',
         'no-underscore-dangle': 'off',
-        'react/jsx-filename-extension': ['error', { extensions: ['.js', '.jsx', '.tsx'] }],
+        'react/jsx-filename-extension': [
+            'error',
+            { extensions: ['.js', '.jsx', '.tsx'] },
+        ],
         'i18next/no-literal-string': 2,
+        'max-len': ['error', {
+            ignoreComments: true,
+            code: 100,
+        }],
+
     },
     globals: {
         __IS_DEV__: true,
