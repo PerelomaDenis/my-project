@@ -8,8 +8,6 @@ module.exports = {
         'plugin:react/recommended',
         'airbnb',
     ],
-    overrides: [
-    ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
         ecmaVersion: 'latest',
@@ -38,7 +36,9 @@ module.exports = {
             'error',
             { extensions: ['.js', '.jsx', '.tsx'] },
         ],
-        'i18next/no-literal-string': 2,
+        'i18next/no-literal-string': ['error', {
+            ignoreAttribute: ['data-testid'],
+        }],
         'max-len': ['error', {
             ignoreComments: true,
             code: 100,
@@ -48,4 +48,12 @@ module.exports = {
     globals: {
         __IS_DEV__: true,
     },
+    overrides: [
+        {
+            files: ['**/src/**/*.test.{ts,tsx}'],
+            rules: {
+                'i18next/no-literal-string': 'off',
+            },
+        },
+    ],
 };
