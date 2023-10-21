@@ -9,7 +9,13 @@ export enum AppLinkTheme {
 }
 
 interface AppLinkProps extends LinkProps{
+    /**
+     * Дополнительный класс
+     */
     className?: string;
+    /**
+     * Варианты темы ссылки
+     */
     theme?: AppLinkTheme;
 }
 
