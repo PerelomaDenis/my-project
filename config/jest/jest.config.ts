@@ -19,9 +19,7 @@ const config: Config = {
     // Automatically clear mock calls, instances, contexts and results before every test
     clearMocks: true,
     testEnvironment: 'jsdom',
-    coveragePathIgnorePatterns: [
-        '\\\\node_modules\\\\',
-    ],
+    coveragePathIgnorePatterns: ['\\\\node_modules\\\\'],
     moduleFileExtensions: [
         'js',
         'mjs',
@@ -32,14 +30,10 @@ const config: Config = {
         'json',
         'node',
     ],
-    moduleDirectories: [
-        'node_modules',
-    ],
+    moduleDirectories: ['node_modules'],
     rootDir: '../../',
     modulePaths: ['<rootDir>src/'],
-    testMatch: [
-        '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)',
-    ],
+    testMatch: ['<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)'],
     setupFilesAfterEnv: ['<rootDir>config/jest/jestSetup.ts'],
     moduleNameMapper: {
         '\\.(css|scss)$': 'identity-obj-proxy',

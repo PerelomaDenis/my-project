@@ -11,8 +11,7 @@ const meta = {
     //     layout: 'centered',
     // },
     tags: ['autodocs'],
-    args: {
-    },
+    args: {},
 } satisfies Meta<typeof AboutPage>;
 
 export default meta;

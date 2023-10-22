@@ -12,7 +12,8 @@ export function LangSwitcher(props: LangSwitcherProps) {
 
     const { t, i18n } = useTranslation();
 
-    const toggleLanguage = () => i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru');
+    const toggleLanguage = () =>
+        i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru');
 
     return (
         <Button

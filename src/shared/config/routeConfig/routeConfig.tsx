@@ -6,7 +6,7 @@ import { NotFound } from 'pages/NotFound';
 enum AppRoutes {
     MAIN = 'main',
     ABOUT = 'about',
-    NOT_FOUND = 'not-found'
+    NOT_FOUND = 'not-found',
 }
 
 export const routePaths: Record<AppRoutes, string> = {

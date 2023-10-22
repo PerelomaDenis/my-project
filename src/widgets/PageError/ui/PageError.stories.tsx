@@ -11,8 +11,7 @@ const meta = {
     //     layout: 'centered',
     // },
     tags: ['autodocs'],
-    argTypes: {
-    },
+    argTypes: {},
 } satisfies Meta<typeof PageError>;
 
 export default meta;

@@ -19,8 +19,12 @@ export function PageError(props: PageErrorProps) {
 
     return (
         <div className={classNames(cls.PageError, {}, [className])}>
-            <div className={cls.title}>{t('Возникла непредвиденная ошибка')}</div>
-            <Button theme={ButtonTheme.OUTLINE} onClick={onReload}>{t('Обновить страницу')}</Button>
+            <div className={cls.title}>
+                {t('Возникла непредвиденная ошибка')}
+            </div>
+            <Button theme={ButtonTheme.OUTLINE} onClick={onReload}>
+                {t('Обновить страницу')}
+            </Button>
         </div>
     );
 }

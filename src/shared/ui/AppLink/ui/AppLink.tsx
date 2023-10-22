@@ -8,7 +8,7 @@ export enum AppLinkTheme {
     INVERTED = 'inverted',
 }
 
-interface AppLinkProps extends LinkProps{
+interface AppLinkProps extends LinkProps {
     /**
      * Дополнительный класс
      */
@@ -21,7 +21,11 @@ interface AppLinkProps extends LinkProps{
 
 export function AppLink(props: PropsWithChildren<AppLinkProps>) {
     const {
-        className, children, to, theme = AppLinkTheme.PRIMARY, ...otherProps
+        className,
+        children,
+        to,
+        theme = AppLinkTheme.PRIMARY,
+        ...otherProps
     } = props;
 
     return (

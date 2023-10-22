@@ -15,7 +15,7 @@ export enum ButtonSize {
     XL = 'sizeXL',
 }
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     /**
      * Дополнительный класс
      */
@@ -46,11 +46,11 @@ export function Button(props: PropsWithChildren<ButtonProps>) {
     return (
         <button
             type="button"
-            className={classNames(
-                cls.Button,
-                { [cls.square]: square },
-                [className, cls[theme], cls[size]],
-            )}
+            className={classNames(cls.Button, { [cls.square]: square }, [
+                className,
+                cls[theme],
+                cls[size],
+            ])}
             {...otherProps}
         >
             {children}

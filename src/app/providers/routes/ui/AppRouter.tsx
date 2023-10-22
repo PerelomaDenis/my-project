@@ -11,9 +11,7 @@ export function AppRouter() {
                     <Route
                         key={path}
                         path={path}
-                        element={
-                            <div className="pageWrapper">{element}</div>
-                        }
+                        element={<div className="pageWrapper">{element}</div>}
                     />
                 ))}
             </Routes>

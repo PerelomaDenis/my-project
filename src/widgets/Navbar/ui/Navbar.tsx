@@ -8,9 +8,5 @@ interface NavbarProps {
 export function Navbar(props: NavbarProps) {
     const { className } = props;
 
-    return (
-        <div className={classNames(cls.Navbar, {}, [className])}>
-            /
-        </div>
-    );
+    return <div className={classNames(cls.Navbar, {}, [className])}>/</div>;
 }

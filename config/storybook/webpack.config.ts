@@ -4,7 +4,11 @@ import { BuildPaths } from '../build/types/config';
 import { buildCssLoader } from '../build/loaders/buildCssLoader';
 import { buildSVGLoader } from '../build/loaders/buildSVGLoader';
 
-export const storybookWebpack = ({ config }: { config: webpack.Configuration }) => {
+export const storybookWebpack = ({
+    config,
+}: {
+    config: webpack.Configuration;
+}) => {
     const paths: BuildPaths = {
         entry: '',
         html: '',

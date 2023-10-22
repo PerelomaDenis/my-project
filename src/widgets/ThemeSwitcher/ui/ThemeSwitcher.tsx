@@ -1,7 +1,10 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import ThemeDarkIcon from 'shared/assets/icons/theme-dark.svg';
 import ThemeLightIcon from 'shared/assets/icons/theme-light.svg';
-import { Theme, ThemeContext } from 'app/providers/ThemeProvider/libs/ThemeContext';
+import {
+    Theme,
+    ThemeContext,
+} from 'app/providers/ThemeProvider/libs/ThemeContext';
 import { useContext } from 'react';
 import { Button, ButtonTheme } from 'shared/ui/Button';
 

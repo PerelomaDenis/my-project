@@ -11,8 +11,7 @@ const meta = {
     //     layout: 'centered',
     // },
     tags: ['autodocs'],
-    argTypes: {
-    },
+    argTypes: {},
     args: {
         children: 'Button',
     },

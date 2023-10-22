@@ -2,9 +2,7 @@ import { fireEvent, screen } from '@testing-library/react';
 import { Sidebar } from 'widgets/Sidebar';
 import 'shared/config/i18n/i18nForTesting';
 import '@testing-library/jest-dom';
-import {
-    renderComponent,
-} from 'shared/lib/tests/renderComponent/renderComponent';
+import { renderComponent } from 'shared/lib/tests/renderComponent/renderComponent';
 
 describe('Sidebar', () => {
     test('render Sidebar', () => {

@@ -4,18 +4,21 @@ import { Button } from './Button';
 import './header.css';
 
 type User = {
-  name: string;
+    name: string;
 };
 
 interface HeaderProps {
-  user?: User;
-  onLogin: () => void;
-  onLogout: () => void;
-  onCreateAccount: () => void;
+    user?: User;
+    onLogin: () => void;
+    onLogout: () => void;
+    onCreateAccount: () => void;
 }
 
 export function Header({
-    user, onLogin, onLogout, onCreateAccount,
+    user,
+    onLogin,
+    onLogout,
+    onCreateAccount,
 }: HeaderProps) {
     return (
         <header>
@@ -51,18 +54,28 @@ export function Header({
                         <>
                             {/* eslint-disable-next-line i18next/no-literal-string */}
                             <span className="welcome">
-                                Welcome,
-                                {' '}
-                                <b>{user.name}</b>
-                                !
+                                Welcome, <b>{user.name}</b>!
                             </span>
-                            <Button size="small" onClick={onLogout} label="Log out" />
+                            <Button
+                                size="small"
+                                onClick={onLogout}
+                                label="Log out"
+                            />
                         </>
                     ) : (
                         <>
-                            <Button size="small" onClick={onLogin} label="Log in" />
+                            <Button
+                                size="small"
+                                onClick={onLogin}
+                                label="Log in"
+                            />
                             {/* eslint-disable-next-line max-len */}
-                            <Button primary size="small" onClick={onCreateAccount} label="Sign up" />
+                            <Button
+                                primary
+                                size="small"
+                                onClick={onCreateAccount}
+                                label="Sign up"
+                            />
                         </>
                     )}
                 </div>
