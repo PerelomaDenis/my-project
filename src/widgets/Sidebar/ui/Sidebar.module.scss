@@ -12,8 +12,44 @@
     width: 100%;
     display: flex;
     justify-content: center;
+    gap: 16px;
+}
+
+.toggleButton {
+    position: absolute;
+    bottom: 80px;
+    right: -32px;
+}
+
+.menuItems {
+    width: 100%;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.menuItem {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 16px;
+}
+
+.menuIcon {
+    fill: var(--inverted-color-primary);
 }
 
 .collapsed {
     width: var(--sidebar-width-collapsed);
+
+    .switchers {
+        flex-direction: column;
+    }
+
+    .menuLinkText {
+        width: 0;
+        opacity: 0;
+        transition: opacity .2s;
+    }
 }
