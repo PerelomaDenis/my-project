@@ -8,7 +8,7 @@ import { ThemeContext } from './providers/ThemeProvider/libs/ThemeContext';
 
 export function App() {
     const { theme } = useContext(ThemeContext);
-
+    console.log(theme);
     return (
         <Suspense fallback="Loading...">
             <div className={classNames('app', {}, [theme])}>

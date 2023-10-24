@@ -42,6 +42,9 @@ module.exports = {
         'react-hooks/rules-of-hooks': 'error',
         'react-hooks/exhaustive-deps': 'error',
         'react/jsx-max-props-per-line': ['error', { maximum: 3 }],
+        'jsx-a11y/click-events-have-key-events': 'off',
+        'jsx-a11y/no-static-element-interactions': 'off',
+        'no-param-reassign': 'off',
     },
     globals: {
         __IS_DEV__: true,
