@@ -8,12 +8,13 @@ interface LoginModalProps {
     className?: string;
     isOpen: boolean;
     onClose: () => void;
+    aa: string;
 }
 
 export function LoginModal(props: LoginModalProps) {
     const { className, isOpen, onClose } = props;
 
-    
+
     return (
         <Modal
             lazy
