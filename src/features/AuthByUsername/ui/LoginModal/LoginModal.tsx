@@ -14,7 +14,6 @@ interface LoginModalProps {
 export function LoginModal(props: LoginModalProps) {
     const { className, isOpen, onClose } = props;
 
-
     return (
         <Modal
             lazy
