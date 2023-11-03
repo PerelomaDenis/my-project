@@ -42,16 +42,18 @@ export function Button(props: PropsWithChildren<ButtonProps>) {
         square,
         theme = ButtonTheme.CLEAR,
         size = ButtonSize.M,
+        disabled,
         ...otherProps
     } = props;
     return (
         <button
             type="button"
-            className={classNames(cls.Button, { [cls.square]: square }, [
-                className,
-                cls[theme],
-                cls[size],
-            ])}
+            className={classNames(
+                cls.Button,
+                { [cls.square]: square, [cls.disabled]: disabled },
+                [className, cls[theme], cls[size]],
+            )}
+            disabled={disabled}
             {...otherProps}
         >
             {children}

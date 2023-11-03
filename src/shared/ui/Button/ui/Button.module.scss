@@ -60,3 +60,8 @@
         height: var(--font-line-xl);
     }
 }
+
+.disabled {
+    opacity: .5;
+    cursor: auto;
+}

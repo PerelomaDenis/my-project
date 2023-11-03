@@ -30,5 +30,11 @@ export const storybookWebpack = ({
     config.module.rules.push(buildCssLoader(true));
     config.module.rules.push(buildSVGLoader());
 
+    config.plugins.push(
+        new webpack.DefinePlugin({
+            __IS_DEV__: true,
+        }),
+    );
+
     return config;
 };
