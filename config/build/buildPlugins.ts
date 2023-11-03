@@ -20,7 +20,7 @@ export const buildPlugins = (options: BuildOptions): webpack.WebpackPluginInstan
             __IS_DEV__: JSON.stringify(isDev),
         }),
         new BundleAnalyzerPlugin({
-            openAnalyzer: false,
+            openAnalyzer: true,
         }),
     ];
 };

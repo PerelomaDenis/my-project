@@ -44,7 +44,7 @@ export function Navbar(props: NavbarProps) {
             <Button onClick={onOpen} theme={ButtonTheme.CLEAR_INVERTED}>
                 {t('Войти')}
             </Button>
-            <LoginModal onClose={onClose} isOpen={isOpen} />
+            {isOpen && <LoginModal onClose={onClose} isOpen={isOpen} />}
         </div>
     );
 }
