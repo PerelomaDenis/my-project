@@ -25,5 +25,14 @@
       "password": "123"
     }
   ],
-  "profile": { "name": "typicode" }
+  "profile": {
+    "first": "Denis",
+    "lastname": "Pereloma",
+    "age": 29,
+    "currency": "RUB",
+    "country": "Russia",
+    "city": "Taganrog",
+    "username": "admin",
+    "avatar": "https://pixelbox.ru/wp-content/uploads/2021/03/ava-instagram-4.jpg"
+  }
 }

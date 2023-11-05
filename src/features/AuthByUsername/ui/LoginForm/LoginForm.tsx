@@ -7,22 +7,21 @@ import { useCallback } from 'react';
 import { loginActions, loginReducer } from 'features/AuthByUsername';
 import { Text } from 'shared/ui/Text';
 import { TextTheme } from 'shared/ui/Text/ui/Text';
-// eslint-disable-next-line max-len
-import { getLoginUsername } from 'features/AuthByUsername/model/selectors/getLoginUsername/getLoginUsername';
-// eslint-disable-next-line max-len
-import { getLoginPassword } from 'features/AuthByUsername/model/selectors/getLoginPassword/getLoginPassword';
-import { getLoginError } from 'features/AuthByUsername/model/selectors/getLoginError/getLoginError';
-// eslint-disable-next-line max-len
-import { getLoginIsLoading } from 'features/AuthByUsername/model/selectors/getLoginIsLoading/getLoginIsLoading';
 import {
     DynamicModuleLoader,
     ReducersList,
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from 'shared/hooks/useAppDispatch';
+import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername';
+import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
+import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
+import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
 import cls from './LoginForm.module.scss';
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
 
 interface LoginFormProps {
     className?: string;
+    onSuccess: () => void;
 }
 
 const initialReducers: ReducersList = {
@@ -30,9 +29,9 @@ const initialReducers: ReducersList = {
 };
 
 function LoginForm(props: LoginFormProps) {
-    const { className } = props;
+    const { className, onSuccess } = props;
 
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const { t } = useTranslation();
 
     const username = useSelector(getLoginUsername);
@@ -54,10 +53,13 @@ function LoginForm(props: LoginFormProps) {
         [dispatch],
     );
 
-    const onSubmit = useCallback(() => {
+    const onSubmit = useCallback(async () => {
         // @ts-ignore
-        dispatch(loginByUsername({ username, password }));
-    }, [dispatch, username, password]);
+        const result = await dispatch(loginByUsername({ username, password }));
+        if (result.meta.requestStatus === 'fulfilled') {
+            onSuccess();
+        }
+    }, [onSuccess, dispatch, username, password]);
 
     return (
         <DynamicModuleLoader removeAfterUnmount reducers={initialReducers}>

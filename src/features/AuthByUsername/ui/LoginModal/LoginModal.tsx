@@ -18,7 +18,7 @@ export function LoginModal(props: LoginModalProps) {
             onClose={onClose}
             className={classNames('', {}, [className])}
         >
-            <LoginForm />
+            <LoginForm onSuccess={onClose} />
         </Modal>
     );
 }
