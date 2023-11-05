@@ -7,11 +7,13 @@ import { AxiosInstance } from 'axios';
 // @ts-ignore
 import { To } from 'history';
 import { NavigateOptions } from 'react-router';
+import { ProfileSchema } from 'entities/Profile';
 
 export interface StateSchema {
     counter: CounterSchema;
     user: UserSchema;
     loginForm?: LoginSchema;
+    profile?: ProfileSchema;
 }
 
 export type StateSchemaKeys = keyof StateSchema;
