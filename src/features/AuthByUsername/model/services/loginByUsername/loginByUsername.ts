@@ -14,7 +14,6 @@ export const loginByUsername = createAsyncThunk<
     ThunkConfig<string>
 >('login/loginByUsername', async (loginData, thunkAPI) => {
     try {
-        // TODO baseurl проверить
         const response = await thunkAPI.extra.api.post(
             'http://localhost:8000/login',
             loginData,
