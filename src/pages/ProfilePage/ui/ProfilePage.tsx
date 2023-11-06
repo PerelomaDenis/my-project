@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import {
     DynamicModuleLoader,
     ReducersList,
@@ -13,8 +12,6 @@ const initialReducers: ReducersList = {
 };
 
 function ProfilePage() {
-    const { t } = useTranslation('profile');
-
     const dispatch = useAppDispatch();
 
     useEffect(() => {

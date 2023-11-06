@@ -17,7 +17,7 @@ module.exports = {
         'react/react-in-jsx-scope': 'off',
         'import/no-extraneous-dependencies': 'off',
         'react/jsx-props-no-spreading': 'warn',
-        'no-unused-vars': 'warn',
+        // 'no-unused-vars': 'warn',
         'react/require-default-props': 'off',
         'import/prefer-default-export': 'off',
         'no-shadow': 'off',
@@ -45,6 +45,12 @@ module.exports = {
         'jsx-a11y/click-events-have-key-events': 'off',
         'jsx-a11y/no-static-element-interactions': 'off',
         'no-param-reassign': 'off',
+        'no-undef': 'off',
+        'no-unused-vars': 'off',
+        '@typescript-eslint/no-unused-vars': [
+            'warn',
+            { argsIgnorePattern: '^_' },
+        ],
     },
     globals: {
         __IS_DEV__: true,
