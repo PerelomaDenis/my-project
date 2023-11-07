@@ -8,6 +8,7 @@ export interface SidebarElement {
     path: string;
     Icon: FunctionComponent<SVGAttributes<SVGElement>>;
     title: string;
+    authOnly?: boolean;
 }
 
 export const sidebarItems: SidebarElement[] = [
@@ -25,5 +26,6 @@ export const sidebarItems: SidebarElement[] = [
         path: routePaths.profile,
         Icon: ProfileIcon,
         title: 'Профиль',
+        authOnly: true,
     },
 ];
