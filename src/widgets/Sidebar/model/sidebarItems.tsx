@@ -2,6 +2,7 @@ import { FunctionComponent, SVGAttributes } from 'react';
 import { routePaths } from 'shared/config/routeConfig/routeConfig';
 import HomeIcon from 'shared/assets/icons/menu-home.svg';
 import AboutIcon from 'shared/assets/icons/menu-about.svg';
+import ArticlesIcon from 'shared/assets/icons/menu-articles.svg';
 import ProfileIcon from 'shared/assets/icons/menu-profile.svg';
 
 export interface SidebarElement {
@@ -26,6 +27,12 @@ export const sidebarItems: SidebarElement[] = [
         path: routePaths.profile,
         Icon: ProfileIcon,
         title: 'Профиль',
+        authOnly: true,
+    },
+    {
+        path: routePaths.articles,
+        Icon: ArticlesIcon,
+        title: 'Статьи',
         authOnly: true,
     },
 ];
