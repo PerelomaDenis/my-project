@@ -12,12 +12,18 @@ export enum TextAlign {
     LEFT = 'left',
 }
 
+export enum TextSize {
+    M = 'size_m',
+    L = 'size_l',
+}
+
 interface TextProps {
     className?: string;
     title?: string;
     text?: string;
     theme?: TextTheme;
     align?: TextAlign;
+    size?: TextSize;
 }
 
 export function Text(props: TextProps) {
@@ -27,6 +33,7 @@ export function Text(props: TextProps) {
         title,
         theme = TextTheme.PRIMARY,
         align = TextAlign.LEFT,
+        size = TextSize.M,
     } = props;
 
     return (
@@ -34,6 +41,7 @@ export function Text(props: TextProps) {
             className={classNames(cls.Text, { [cls[align]]: align }, [
                 className,
                 cls[theme],
+                cls[size],
             ])}
         >
             {title && <p className={cls.title}>{title}</p>}

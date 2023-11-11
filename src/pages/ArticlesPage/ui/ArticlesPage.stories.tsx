@@ -5,7 +5,7 @@ import { Theme } from 'app/providers/ThemeProvider/libs/ThemeContext';
 import ArticlesPage from './ArticlesPage';
 
 const meta = {
-    title: 'pages/AboutPage',
+    title: 'pages/ArticlesPage',
     component: ArticlesPage,
     // parameters: {
     //     layout: 'centered',
