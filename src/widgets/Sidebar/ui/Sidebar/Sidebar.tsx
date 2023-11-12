@@ -3,9 +3,9 @@ import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import { useMemo, useState } from 'react';
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button';
 import { LangSwitcher } from 'widgets/LangSwitcher';
-import { sidebarItems } from 'widgets/Sidebar/model/sidebarItems';
 import { SidebarItem } from 'widgets/Sidebar/ui/SidebarItem/SidebarItem';
-import { $api } from 'shared/api/api';
+import { useSelector } from 'react-redux';
+import { getSidebarItems } from 'widgets/Sidebar/model/selectors/getSidebarItems';
 import cls from './Sidebar.module.scss';
 
 interface SidebarProps {
@@ -14,6 +14,8 @@ interface SidebarProps {
 
 export function Sidebar(props: SidebarProps) {
     const { className } = props;
+
+    const sidebarItems = useSelector(getSidebarItems);
 
     const [collapsed, setCollapsed] = useState(false);
     const menuLinks = useMemo(
@@ -25,7 +27,7 @@ export function Sidebar(props: SidebarProps) {
                     collapsed={collapsed}
                 />
             )),
-        [collapsed],
+        [collapsed, sidebarItems],
     );
 
     const toggleCollapsed = () => setCollapsed((prev) => !prev);
