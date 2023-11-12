@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { ArticleDetails } from 'entities/Article';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { Text } from 'shared/ui/Text';
 import { CommentList } from 'entities/Comment';
 import {
@@ -13,7 +13,6 @@ import {
     getArticleComments,
 } from 'pages/ArticleDetailPage/model/slice/articleDetailsCommentSlice';
 import { useSelector } from 'react-redux';
-import { getArticleDetailsIsLoading } from 'entities/Article/model/selectors/articleDetails';
 import {
     getArticleCommentsError,
     getArticleCommentsIsLoading,
@@ -23,6 +22,8 @@ import { useAppDispatch } from 'shared/hooks/useAppDispatch';
 // eslint-disable-next-line max-len
 import { AddCommentForm } from 'features/addCommentForm';
 import { useCallback } from 'react';
+import { Button, ButtonTheme } from 'shared/ui/Button';
+import { routePaths } from 'shared/config/routeConfig/routeConfig';
 import { addCommentForArticle } from '../model/services/addCommentForArticle/addCommentForArticle';
 // eslint-disable-next-line max-len
 import { fetchCommentsByArticleId } from '../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
@@ -40,6 +41,7 @@ function ArticleDetailPage(props: ArticleDetailPageProps) {
     const { className } = props;
     const { t } = useTranslation('article-details');
     const dispatch = useAppDispatch();
+    const navigate = useNavigate();
 
     const { articleId } = useParams<{ articleId: string }>();
 
@@ -53,6 +55,9 @@ function ArticleDetailPage(props: ArticleDetailPageProps) {
         },
         [dispatch],
     );
+    const onBackToList = useCallback(() => {
+        navigate(routePaths.articles);
+    }, [navigate]);
 
     useInitialEffect(() => {
         dispatch(fetchCommentsByArticleId(articleId));
@@ -65,6 +70,9 @@ function ArticleDetailPage(props: ArticleDetailPageProps) {
     return (
         <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
             <div className={classNames(cls.ArticleDetailPage, {}, [className])}>
+                <Button theme={ButtonTheme.OUTLINE} onClick={onBackToList}>
+                    {t('Назад к списку')}
+                </Button>
                 <ArticleDetails articleId={articleId} />
                 <Text className={cls.commentTitle} title={t('Комментарии')} />
                 <AddCommentForm onSendComment={onSendComment} />

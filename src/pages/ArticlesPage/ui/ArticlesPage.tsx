@@ -1,8 +1,18 @@
-import { useTranslation } from 'react-i18next';
+import { classNames } from 'shared/lib/classNames/classNames';
+import { ArticleList } from 'entities/Article';
+import cls from './ArticlesPage.module.scss';
 
-function ArticlesPage() {
-    const { t } = useTranslation('articles');
-    return <div>{t('Статьи')}</div>;
+interface ArticlesPageProps {
+    className?: string;
+}
+
+function ArticlesPage(props: ArticlesPageProps) {
+    const { className } = props;
+    return (
+        <div className={classNames(cls.ArticlesPage, {}, [className])}>
+            <ArticleList articles={[]} />
+        </div>
+    );
 }
 
 export default ArticlesPage;

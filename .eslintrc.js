@@ -47,6 +47,7 @@ module.exports = {
         'no-param-reassign': 'off',
         'no-undef': 'off',
         'no-unused-vars': 'off',
+        'react/no-array-index-key': 'off',
         '@typescript-eslint/no-unused-vars': [
             'warn',
             { argsIgnorePattern: '^_' },
