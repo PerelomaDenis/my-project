@@ -21,6 +21,10 @@ import {
 import { useInitialEffect } from 'shared/hooks/useInitialEffect';
 import { useAppDispatch } from 'shared/hooks/useAppDispatch';
 // eslint-disable-next-line max-len
+import { AddCommentForm } from 'features/addCommentForm';
+import { useCallback } from 'react';
+import { addCommentForArticle } from '../model/services/addCommentForArticle/addCommentForArticle';
+// eslint-disable-next-line max-len
 import { fetchCommentsByArticleId } from '../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import cls from './ArticleDetailPage.module.scss';
 
@@ -43,6 +47,13 @@ function ArticleDetailPage(props: ArticleDetailPageProps) {
     const error = useSelector(getArticleCommentsError);
     const isLoading = useSelector(getArticleCommentsIsLoading);
 
+    const onSendComment = useCallback(
+        (text: string) => {
+            dispatch(addCommentForArticle(text));
+        },
+        [dispatch],
+    );
+
     useInitialEffect(() => {
         dispatch(fetchCommentsByArticleId(articleId));
     });
@@ -56,6 +67,7 @@ function ArticleDetailPage(props: ArticleDetailPageProps) {
             <div className={classNames(cls.ArticleDetailPage, {}, [className])}>
                 <ArticleDetails articleId={articleId} />
                 <Text className={cls.commentTitle} title={t('Комментарии')} />
+                <AddCommentForm onSendComment={onSendComment} />
                 <CommentList isLoading={isLoading} comments={comments} />
             </div>
         </DynamicModuleLoader>

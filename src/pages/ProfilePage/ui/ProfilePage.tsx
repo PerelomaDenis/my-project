@@ -25,6 +25,7 @@ import { Text } from 'shared/ui/Text';
 import { TextTheme } from 'shared/ui/Text/ui/Text';
 import { ValidateProfileError } from 'entities/Profile/model/types/profile';
 import { useTranslation } from 'react-i18next';
+import { useParams } from 'react-router-dom';
 
 const initialReducers: ReducersList = {
     profile: profileReducer,
@@ -33,6 +34,8 @@ const initialReducers: ReducersList = {
 function ProfilePage() {
     const dispatch = useAppDispatch();
     const { t } = useTranslation();
+
+    const { profileId } = useParams<{ profileId: string }>();
 
     const formData = useSelector(getProfileForm);
     const isLoading = useSelector(getProfileIsLoading);
@@ -111,9 +114,11 @@ function ProfilePage() {
 
     useEffect(() => {
         if (__PROJECT__ !== 'storybook') {
-            dispatch(fetchProfileData());
+            if (profileId) {
+                dispatch(fetchProfileData(profileId));
+            }
         }
-    }, [dispatch]);
+    }, [dispatch, profileId]);
 
     return (
         <DynamicModuleLoader reducers={initialReducers}>
