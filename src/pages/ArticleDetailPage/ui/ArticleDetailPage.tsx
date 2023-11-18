@@ -24,6 +24,7 @@ import { AddCommentForm } from 'features/addCommentForm';
 import { useCallback } from 'react';
 import { Button, ButtonTheme } from 'shared/ui/Button';
 import { routePaths } from 'shared/config/routeConfig/routeConfig';
+import { Page } from 'shared/ui/Page';
 import { addCommentForArticle } from '../model/services/addCommentForArticle/addCommentForArticle';
 // eslint-disable-next-line max-len
 import { fetchCommentsByArticleId } from '../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
@@ -69,7 +70,9 @@ function ArticleDetailPage(props: ArticleDetailPageProps) {
 
     return (
         <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
-            <div className={classNames(cls.ArticleDetailPage, {}, [className])}>
+            <Page
+                className={classNames(cls.ArticleDetailPage, {}, [className])}
+            >
                 <Button theme={ButtonTheme.OUTLINE} onClick={onBackToList}>
                     {t('Назад к списку')}
                 </Button>
@@ -77,7 +80,7 @@ function ArticleDetailPage(props: ArticleDetailPageProps) {
                 <Text className={cls.commentTitle} title={t('Комментарии')} />
                 <AddCommentForm onSendComment={onSendComment} />
                 <CommentList isLoading={isLoading} comments={comments} />
-            </div>
+            </Page>
         </DynamicModuleLoader>
     );
 }

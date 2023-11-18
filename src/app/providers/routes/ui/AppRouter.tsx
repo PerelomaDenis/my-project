@@ -1,9 +1,7 @@
-import { Suspense, useMemo } from 'react';
+import { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { routeConfig } from 'shared/config/routeConfig/routeConfig';
 import { PageLoader } from 'widgets/PageLoader';
-import { useSelector } from 'react-redux';
-import { getUserAuthData } from 'entities/User/model/selectors/getUserAuthData/getUserAuthData';
 import { RequireAuth } from 'app/providers/routes/ui/RequireAuth';
 
 export function AppRouter() {
@@ -17,7 +15,7 @@ export function AppRouter() {
                             path={path}
                             element={
                                 <RequireAuth authOnly={authOnly}>
-                                    <div className="pageWrapper">{element}</div>
+                                    {element}
                                 </RequireAuth>
                             }
                         />
