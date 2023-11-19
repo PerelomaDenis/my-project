@@ -12,10 +12,12 @@ import { ArticleDetailsSchema } from 'entities/Article';
 import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailPage';
 import { AddCommentFormSchema } from 'features/addCommentForm';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
+import { ScrollSaveSchema } from 'features/scrollSave/model/types/scrollSaveSchema';
 
 export interface StateSchema {
     counter: CounterSchema;
     user: UserSchema;
+    scrollSave: ScrollSaveSchema;
     loginForm?: LoginSchema;
     profile?: ProfileSchema;
     articleDetails?: ArticleDetailsSchema;

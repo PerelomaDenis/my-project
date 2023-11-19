@@ -12,16 +12,17 @@ import { $api } from 'shared/api/api';
 import { NavigateOptions } from 'react-router';
 // @ts-ignore
 import { To } from 'history';
+import { scrollSaveReducer } from 'features/scrollSave';
 
 export function createReduxStore(
     initialState?: StateSchema,
     asyncReducers?: ReducersMapObject<StateSchema>,
-    navigate?: (to: To, options?: NavigateOptions) => void,
 ) {
     const rootReducers: ReducersMapObject<StateSchema> = {
         ...asyncReducers,
         counter: counterReducer,
         user: userReducer,
+        scrollSave: scrollSaveReducer,
     };
 
     const reducerManager = createReducerManager(rootReducers);
@@ -35,7 +36,6 @@ export function createReduxStore(
                 thunk: {
                     extraArgument: {
                         api: $api,
-                        navigate,
                     },
                 },
             }),

@@ -8,6 +8,8 @@ import {
 import { StateSchema } from 'app/providers/StoreProvider';
 import { StateSchemaKeys } from 'app/providers/StoreProvider/config/StateSchema';
 
+export type MountedReducers = OptionalRecord<StateSchemaKeys, boolean>;
+
 export interface ReducerManager {
     getReducerMap: () => ReducersMapObject<StateSchema>;
     reduce: (
@@ -16,6 +18,7 @@ export interface ReducerManager {
     ) => CombinedState<StateSchema>;
     add: (key: StateSchemaKeys, reducer: Reducer) => void;
     remove: (key: StateSchemaKeys) => void;
+    getMountedReducers: () => MountedReducers;
 }
 
 export function createReducerManager(
@@ -26,9 +29,11 @@ export function createReducerManager(
     let combinedReducer = combineReducers(reducers);
 
     let keysToRemove: StateSchemaKeys[] = [];
+    const mountedReducers: MountedReducers = {};
 
     return {
         getReducerMap: () => reducers,
+        getMountedReducers: () => mountedReducers,
 
         reduce: (state: StateSchema, action: AnyAction) => {
             if (keysToRemove.length > 0) {
@@ -48,7 +53,7 @@ export function createReducerManager(
             }
 
             reducers[key] = reducer;
-
+            mountedReducers[key] = true;
             combinedReducer = combineReducers(reducers);
         },
 
@@ -60,7 +65,7 @@ export function createReducerManager(
             delete reducers[key];
 
             keysToRemove.push(key);
-
+            mountedReducers[key] = false;
             combinedReducer = combineReducers(reducers);
         },
     };

@@ -24,7 +24,7 @@ import { AddCommentForm } from 'features/addCommentForm';
 import { useCallback } from 'react';
 import { Button, ButtonTheme } from 'shared/ui/Button';
 import { routePaths } from 'shared/config/routeConfig/routeConfig';
-import { Page } from 'shared/ui/Page';
+import { Page } from 'widgets/Page';
 import { addCommentForArticle } from '../model/services/addCommentForArticle/addCommentForArticle';
 // eslint-disable-next-line max-len
 import { fetchCommentsByArticleId } from '../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
