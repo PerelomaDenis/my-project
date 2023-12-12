@@ -3,7 +3,7 @@ import { MainPage } from 'pages/MainPage';
 import { AboutPage } from 'pages/AboutPage';
 import { ProfilePage } from 'pages/ProfilePage';
 import { NotFound } from 'pages/NotFound';
-import ArticlesPage from 'pages/ArticlesPage/ui/ArticlesPage';
+import ArticlesPage from 'pages/ArticlesPage/ui/ArticlesPage/ArticlesPage';
 import ArticleDetailPage from 'pages/ArticleDetailPage/ui/ArticleDetailPage';
 
 type AppRoutesProps = RouteProps & {

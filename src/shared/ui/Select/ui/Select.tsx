@@ -2,12 +2,12 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { ChangeEvent, Key, useCallback, useMemo } from 'react';
 import cls from './Select.module.scss';
 
-interface SelectOption<T> {
+export interface SelectOption<T extends string> {
     value: T;
     content: string;
 }
 
-interface SelectProps<T> {
+interface SelectProps<T extends string> {
     className?: string;
     label?: string;
     options?: SelectOption<T>[];
@@ -16,7 +16,7 @@ interface SelectProps<T> {
     disabled?: boolean;
 }
 
-export function Select<T>(props: SelectProps<T>) {
+export function Select<T extends string>(props: SelectProps<T>) {
     const { className, label, options, value, onChange, disabled } = props;
 
     const optionList = useMemo(
